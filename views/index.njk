@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public Indicative Votes</title>
+{% include "style.html" %}
+</head>
+<body>
+{% include "nav.html" %}
+<main>
+{% for petition in petitions %}
+<section id="{{petition.id}}">
+<h2>{{petition.name}} {{petition.count}}</h2>
+<h3>{{petition.summary}}</h3>{{petition.details}}
+
+<nav><a href="https://petitionmap.unboxedconsulting.com/?petition={{petition.id}}&area=uk">Map</a> <a href="https://splasho.com/petitions/index.php?petition={{petition.id}}">Graph</a> <a class="button" href="https://petition.parliament.uk/petitions/{{petition.id}}">Add your vote</a></nav>
+</section>
+{% endfor %}
+</main>
+{% include "footer.html" %}
+</body>
+</html>
