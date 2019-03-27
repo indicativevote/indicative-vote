@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Public Indicative Votes</title>
 {% include "metacrap.html" %}
 {% include "style.html" %}
+
 <script>
 petition_ids = [];
 {% for petition in petitions %}
 petition_ids.push({{petition.id}});
 {% endfor %}
 </script>
+
+{% include "live_script.html" %}
+
 </head>
 <body>
 {% include "nav.html" %}
