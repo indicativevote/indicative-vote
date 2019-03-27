@@ -4,7 +4,7 @@ function current_time() {
 
 
 function get_latest_count(index) {
-    url ="https://splasho.com/petitions/get_latest_count.php?petition="+ petition_ids[index];
+    const url ="https://splasho.com/petitions/get_latest_count.php?petition="+ petition_ids[index];
     console.log(url);
     fetch(url).then(data => data.json())
     .then(thedata => {
@@ -14,14 +14,20 @@ function get_latest_count(index) {
           console.log("Updating time");
         }
         most_recent_counts[index] = thedata.signature_count;
-    });
+    })
+    .catch(err => {
+        console.log(err);
+    })
 }
 
 function get_latest_rate(index) {
-    url ="https://splasho.com/petitions/get_rate.php?petition=" + petition_ids[index];
+    const url ="https://splasho.com/petitions/get_rate.php?petition=" + petition_ids[index];
     console.log(url);
     fetch(url).then(data => data.json())
     .then(data => {rates[index] = data.signature_rate;})
+    .catch(err => {
+        console.log(err);
+    })
 }
 
 function update_num_signatures(index) {
