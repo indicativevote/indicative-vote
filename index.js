@@ -9,7 +9,9 @@ const app = express()
 const port = process.env.PORT || 30000
 const barwidth=200;
 
-app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.json()); // for parsing application/json 
+app.use(express.static(__dirname + '/static'));
+
 app.set('views', 'views');
 nunjucks.configure(path.resolve(__dirname, 'views'), {
     autoescape: true,
