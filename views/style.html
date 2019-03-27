@@ -5,7 +5,7 @@ body {font-family: "Hoefler Text", Georgia, serif; background-color: white; line
 main {display:flex; flex-wrap:wrap; justify-content:space-around;}
 section,header { max-width: 40em;  margin: 1em; }
 p { max-width: 40em;  padding: .75rem; margin:0em;}
-section { background: white;    border-radius: .5em;     border: 1px solid lightgrey;
+section,aside { background: white;    border-radius: .5em;     border: 1px solid lightgrey;
 
 }
 h1 {font-size: 2em;}
@@ -14,7 +14,7 @@ h3 {font-size: 1.25em;}
 section h2 {
     background:darkgreen; color:white;
     display: flex; justify-content: space-between;}
-h1, h2, h3, h4, h5, h6, nav {
+h1, h2, h3, h4, h5, h6, nav,aside {
     font-family: "Gill Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 600;
     line-height: 1.1;
@@ -28,6 +28,10 @@ a {
     border: 1px solid lightgrey;
     border-radius: .75em;
 }
+aside a { padding: 0em;
+    border: none;
+    border-radius: 0em;
+    }
 nav {
     display: flex;
     justify-content: space-between;

@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 const app = express()
 const port = process.env.PORT || 30000
+const barwidth=200;
 
 app.use(bodyParser.json()); // for parsing application/json
 app.set('views', 'views');
@@ -24,7 +25,7 @@ const content={"petitions":[
 function get_petitions(id_list){
     let op={"err":""};
     let max=0;
-    console.log(id_list);
+    //console.log(id_list);
     const fetches = Object.keys(id_list).map(id => fetch("https://petition.parliament.uk/petitions/"+id+".json").then(v =>v.json()));
     //console.log(fetches);
     return Promise.all(fetches).then (pets =>{
@@ -43,6 +44,11 @@ function get_petitions(id_list){
         }
         op["petitions"] = petlist.sort((a,b) =>{return b.rawcount-a.rawcount});
         op["max"]=max;
+        op["fullwidth"]=barwidth;
+        for (let i=0;i<petlist.length;i++){
+            petlist[i]["width"] = barwidth*petlist[i]["rawcount"]/max;
+        }
+        
         //console.log(op);
         return op;
     })

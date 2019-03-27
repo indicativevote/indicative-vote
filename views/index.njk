@@ -10,6 +10,13 @@
 <body>
 {% include "nav.html" %}
 <main>
+<aside>
+<table>
+{% for petition in petitions %}
+<tr><td><a href="#{{petition.id}}">{{petition.name}}</a><td><svg width='100%' height='1em' viewBox='0 0 {{fullwidth}} 20'><rect fill='black' x='0' y='0' width='{{petition.width}}' height='20' /></svg><td>{{petition.count}}</tr>
+{% endfor %}
+</table>
+</aside>
 {% for petition in petitions %}
 <section id="{{petition.id}}">
 <h2><span>{{petition.name}}</span> <span id="signatures_{{petition.id}}">{{petition.count}}</span></h2>
