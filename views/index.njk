@@ -7,7 +7,16 @@
   <title>Public Indicative Votes</title>
 {% include "metacrap.html" %}
 {% include "style.html" %}
+
+<script>
+petition_ids = [];
+{% for petition in petitions %}
+petition_ids.push({{petition.id}});
+{% endfor %}
+</script>
+
 {% include "live_script.html" %}
+
 </head>
 <body>
 {% include "nav.html" %}
