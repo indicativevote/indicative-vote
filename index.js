@@ -35,12 +35,13 @@ function get_petitions(id_list){
                             "name":petitions[pet.data.id],
                             "summary":pet.data.attributes.action,
                             "details":pet.data.attributes.background,
-                            "count":pet.data.attributes.signature_count,
+                            "rawcount":pet.data.attributes.signature_count,
+                            "count":pet.data.attributes.signature_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                             
             });
             max=Math.max(max,pet.data.attributes.signature_count);
         }
-        op["petitions"] = petlist.sort((a,b) =>{return b.count-a.count});
+        op["petitions"] = petlist.sort((a,b) =>{return b.rawcount-a.rawcount});
         op["max"]=max;
         //console.log(op);
         return op;
