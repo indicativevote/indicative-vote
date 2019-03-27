@@ -3,8 +3,6 @@ function current_time() {
   return new Date().getTime() / 1000;
 }
 
-petition_ids = [235138, 243319, 241584];
-
 most_recent_counts = Array.apply(0, Array(petition_ids.length)).map(function () {});
 most_recent_times = Array.apply(current_time(), Array(petition_ids.length)).map(function () {});
 rates = Array.apply(0, Array(petition_ids.length)).map(function () {});
