@@ -4,7 +4,8 @@ function current_time() {
 
 
 function get_latest_count(index) {
-    const url ="https://splasho.com/petitions/get_latest_count.php?petition="+ petition_ids[index];
+    //const url ="https://splasho.com/petitions/get_latest_count.php?petition="+ petition_ids[index];
+    const url= "https://petition.parliament.uk/petitions/"+petition_ids[index]+"/count.json";
     console.log(url);
     fetch(url).then(data => data.json())
     .then(thedata => {
