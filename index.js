@@ -46,7 +46,7 @@ function get_petitions(id_list){
         op["max"]=max;
         op["fullwidth"]=barwidth;
         for (let i=0;i<petlist.length;i++){
-            petlist[i]["width"] = barwidth*petlist[i]["rawcount"]/max;
+            petlist[i]["width"] = Math.max(0.2,barwidth*petlist[i]["rawcount"]/max);
         }
         
         //console.log(op);
