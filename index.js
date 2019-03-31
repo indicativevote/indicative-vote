@@ -20,6 +20,7 @@ nunjucks.configure(path.resolve(__dirname, 'views'), {
 const petitions={241584:"Revoke Article 50 and Remain",229963:"No Deal",243319:"Leave, deal or no deal",
     235138:"2nd Referendum",232984:"Vote if Rejected",234587:"Norway EEA/EFTA",
     233483:"Withdraw from Backstop",233767:"Schengen and Euro",239706:"Revoke if no plan",
+    235954:"Voting for EU in UK & UK in EU",
     /* 251971:"PM May’s Deal" */
     }
 function get_petitions(id_list){
