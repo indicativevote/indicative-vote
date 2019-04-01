@@ -8,7 +8,7 @@
 {% include "style.html" %}
 
 </head>
-<body>
+<body class="h-feed">
 {% include "nav.html" %}
 <main>
 <aside>
@@ -19,12 +19,12 @@
 </table>
 </aside>
 {% for petition in petitions %}
-<section id="{{petition.id}}">
-<h2><span>{{petition.name}}</span> <span class="signatures_{{petition.id}}">{{petition.count}}</span></h2>
-<h3>{{petition.summary}}</h3>
-<p>{{petition.details}}
+<section class="h-entry" id="{{petition.id}}">
+<h2 class="p-name"><span>{{petition.name}}</span> <span class="signatures_{{petition.id}}">{{petition.count}}</span></h2>
+<h3 class="p-summary">{{petition.summary}}</h3>
+<p class="p-content">{{petition.details}}
 
-<nav><a href="https://petitionmap.unboxedconsulting.com/?petition={{petition.id}}&area=uk">Map</a> <a href="https://splasho.com/petitions/index.php?petition={{petition.id}}">Graph</a> <a class="button" href="https://petition.parliament.uk/petitions/{{petition.id}}">Add your name to the petition</a></nav>
+<nav><a href="https://petitionmap.unboxedconsulting.com/?petition={{petition.id}}&area=uk">Map</a> <a href="https://splasho.com/petitions/index.php?petition={{petition.id}}">Graph</a> <a class="button u-url" href="https://petition.parliament.uk/petitions/{{petition.id}}">Add your name to the petition</a></nav>
 </section>
 {% endfor %}
 </main>
