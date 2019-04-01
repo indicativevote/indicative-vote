@@ -10,11 +10,13 @@ function get_latest_count(index) {
     fetch(url).then(data => data.json())
     .then(thedata => {
         console.log("Got new data ", thedata);
-        if (thedata.signature_count != most_recent_counts[index]) {
-          most_recent_times[index] = current_time();
-          console.log("Updating time");
+        if (thedata.signature_count) {
+            if (thedata.signature_count != most_recent_counts[index]) {
+              most_recent_times[index] = current_time();
+              console.log("Updating time");
+            }
+            most_recent_counts[index] = thedata.signature_count;
         }
-        most_recent_counts[index] = thedata.signature_count;
     })
     .catch(err => {
         console.log(err);
