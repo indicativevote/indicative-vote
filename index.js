@@ -40,6 +40,8 @@ function get_petitions(id_list){
                             "details":pet.data.attributes.background,
                             "rawcount":pet.data.attributes.signature_count,
                             "count":pet.data.attributes.signature_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+                            "debate":pet.data.attributes.debate,
+                            "state":pet.data.attributes.state
                             
             });
             max=Math.max(max,pet.data.attributes.signature_count);

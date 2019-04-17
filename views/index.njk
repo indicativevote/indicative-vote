@@ -24,7 +24,10 @@
 <h3 class="p-summary">{{petition.summary}}</h3>
 <p class="p-content">{{petition.details}}
 
-<nav><a href="https://petitionmap.unboxedconsulting.com/?petition={{petition.id}}&area=uk">Map</a> <a href="https://splasho.com/petitions/index.php?petition={{petition.id}}">Graph</a> <a class="button u-url" href="https://petition.parliament.uk/petitions/{{petition.id}}">Add your name to the petition</a></nav>
+<nav><a href="https://petitionmap.unboxedconsulting.com/?petition={{petition.id}}&area=uk">Map</a> <a href="https://splasho.com/petitions/index.php?petition={{petition.id}}">Graph</a> <a class="button u-url" href="https://petition.parliament.uk/petitions/{{petition.id}}">{{"Add your name to" if petition.state=="open" else "View"}} the petition</a></nav>
+{% if petition.debate %}
+<footer>Debated on {{petition.debate.debated_on}} <a href="{{petition.debate.video_url}}" >Video</a> <a href="{{petition.debate.transcript_url}}" >Hansard</a></footer>
+{% endif %}
 </section>
 {% endfor %}
 </main>
