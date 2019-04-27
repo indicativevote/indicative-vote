@@ -4,6 +4,7 @@ const nunjucks = require('nunjucks');
 const fetch = require('node-fetch');
 const path = require('path');
 const bodyParser = require('body-parser');
+const ukge2eu = require('./ukge2eu');
 
 const app = express()
 const port = process.env.PORT || 30000
@@ -34,6 +35,13 @@ function get_petitions(id_list){
         //console.log(pets);
         let petlist=[];
         for (let pet of pets){
+            let eubreakdown={};
+            for (let eer in ukge2eu.names){
+                eubreakdown[eer]=0;
+            }
+            for (let cons of pet.data.attributes.signatures_by_constituency){
+                eubreakdown[ukge2eu.lookup[cons.ons_code]] += cons.signature_count; 
+            }
             petlist.push({  "id":pet.data.id,
                             "name":petitions[pet.data.id],
                             "summary":pet.data.attributes.action,
@@ -41,7 +49,8 @@ function get_petitions(id_list){
                             "rawcount":pet.data.attributes.signature_count,
                             "count":pet.data.attributes.signature_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                             "debate":pet.data.attributes.debate,
-                            "state":pet.data.attributes.state
+                            "state":pet.data.attributes.state,
+                            "eubreakdown":eubreakdown
                             
             });
             max=Math.max(max,pet.data.attributes.signature_count);
@@ -49,6 +58,7 @@ function get_petitions(id_list){
         op["petitions"] = petlist.sort((a,b) =>{return b.rawcount-a.rawcount});
         op["max"]=max;
         op["fullwidth"]=barwidth;
+        op["eernames"]= ukge2eu.names;
         for (let i=0;i<petlist.length;i++){
             petlist[i]["width"] = Math.max(0.2,barwidth*petlist[i]["rawcount"]/max);
         }

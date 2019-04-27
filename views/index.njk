@@ -24,7 +24,13 @@
 <h2 class="p-name"><span>{{petition.name}}</span> <span class="signatures_{{petition.id}}">{{petition.count}}</span></h2>
 <h3 class="p-summary">{{petition.summary}}</h3>
 <p class="p-content">{{petition.details}}
-
+<details><summary>EU breakdown</summary>
+<table>
+{% for eer,count in petition.eubreakdown %}
+<tr><td>{{eernames[eer]}}<td>{{count}}
+{% endfor %}
+</table>
+</details>
 <nav><a href="https://petitionmap.unboxedconsulting.com/?petition={{petition.id}}&area=uk">Map</a> <a href="https://splasho.com/petitions/index.php?petition={{petition.id}}">Graph</a> <a class="button u-url" href="https://petition.parliament.uk/petitions/{{petition.id}}">{{"Add your name to" if petition.state=="open" else "View"}} the petition</a></nav>
 {% if petition.debate %}
 <footer>Debated on {{petition.debate.debated_on}} <a href="{{petition.debate.video_url}}" >Video</a> <a href="{{petition.debate.transcript_url}}" >Hansard</a></footer>
