@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Public Indicative Votes</title>
-{% set headercopy="Parliament is in recess, but there is probably an Election  coming soon - Register to vote to have your say then. After registering, you can sign parliamentary petitions. Which would you support? You can choose more than one." %}
+{% set headercopy="Given the impasse in parliament there is probably an Election or Referendum coming soon - Register to vote to have your say then. After registering, you can sign parliamentary petitions. Which would you support? You can choose more than one." %}
 {% include "metacrap.html" %}
 {% include "style.html" %}
 
@@ -15,13 +15,13 @@
 <aside>
 <table>
 {% for petition in petitions %}
-<tr><td><a href="#{{petition.id}}">{{petition.name}}</a><td><svg width='100%' height='1em' viewBox='0 0 {{fullwidth}} 20'><rect fill='black' x='0' y='0' width='{{petition.width}}' height='20' /></svg><td class="signatures_{{petition.id}}">{{petition.count}}</tr>
+<tr class="state-{{petition.state}}"><td><a href="#{{petition.id}}">{{petition.name}}</a><td><svg width='100%' height='1em' viewBox='0 0 {{fullwidth}} 20'><rect fill='black' x='0' y='0' width='{{petition.width}}' height='20' /></svg><td {% if petition.state=='open' %}class="signatures_{{petition.id}}" {% endif %}>{{petition.count}}</tr>
 {% endfor %}
 </table>
 </aside>
 {% for petition in petitions %}
-<section class="h-entry" id="{{petition.id}}">
-<h2 class="p-name"><span>{{petition.name}}</span> <span class="signatures_{{petition.id}}">{{petition.count}}</span></h2>
+<section class="h-entry state-{{petition.state}}" id="{{petition.id}}">
+<h2 class="p-name"><span>{{petition.name}}</span> <span {% if petition.state=='open' %} class="signatures_{{petition.id}}" {% endif %}>{{petition.count}}</span></h2>
 <h3 class="p-summary">{{petition.summary}}</h3>
 <p class="p-content">{{petition.details}}
 <details><summary>EU breakdown</summary>
