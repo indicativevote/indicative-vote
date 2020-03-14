@@ -26,7 +26,7 @@
 <h2 class="p-name"><span>{{petition.name}}</span> <span {% if petition.state=='open' %} class="signatures_{{petition.id}}" {% endif %}>{{petition.count}}</span></h2>
 <h3 class="p-summary">{{petition.summary}}</h3>
 <p class="p-content">{{petition.details}}
-<details><summary>EU breakdown</summary>
+<details><summary>Regional breakdown</summary>
 <table>
 {% for eer,count in petition.eubreakdown %}
 <tr><td>{{eernames[eer]}}<td>{{count}}
