@@ -32,7 +32,8 @@ const brexit_petitions={241584:"Revoke Article 50 and Remain",229963:"No Deal in
 const petitions ={300403:"Close all Schools/Colleges",300336:"Sick pay for self employed",300628:"Close Universities",301397:"Lockdown like Italy",
     301186:"Support Events Industry",300399:"Don’t prosecute truants",300426:"Close schools with cases",300412:"Extend Brexit transition",
     301439:"Work from home",300965:"Social Distancing",/* 302628:"Infect MPs first", */ 300932:"Close Airports & Seaports",
-    300204:"Housing Benefit Hours worked",300991:"Help Taiwan join WHO",301084:"Keep schools open",300885:"Ban large public gatherings"}
+    300204:"Housing Benefit Hours worked",300991:"Help Taiwan join WHO",301084:"Keep schools open",300885:"Ban large public gatherings",
+    301188:"Screen people at Airports",301290:"Catch It, Bin, Kill It"}
 function get_petitions(id_list){
     let op={"err":""};
     let max=0;
