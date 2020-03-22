@@ -34,7 +34,8 @@ const petitions ={300403:"Close all Schools/Colleges",300336:"Sick pay for self 
     301439:"Work from home",300965:"Social Distancing",/* 302628:"Infect MPs first", */ 300932:"Close Airports & Seaports",
     300204:"Housing Benefit Hours worked",300991:"Help Taiwan join WHO",301084:"Keep schools open",300885:"Ban large public gatherings",
     301188:"Screen people at Airports",301290:"Catch It, Bin, Kill It",302284:"Universal Basic Income",301354:"Public Testing",
-    301377:"Suspend VAT/Rates/PAYE",301328:"Fund agency & 0 hour workers",300109:"Suspend Iran Sanctions",301847:"Release the Models"}
+    301377:"Suspend VAT/Rates/PAYE",301328:"Fund agency & 0 hour workers",300109:"Suspend Iran Sanctions",301847:"Release the Models",
+    302256:"Suspend Rent/Mortgage"}
 function get_petitions(id_list){
     let op={"err":""};
     let max=0;
